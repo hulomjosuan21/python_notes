@@ -24,6 +24,8 @@ while i < n:
 ## Range Parameters in Python
 ``` python
 for i in range(start, stop, step):
+for i in range(start, stop):
+for i in range(stop):
 ```
 ## Python Conditional Operators
 #### 1. Comparison Operators (Relational Operators)  
