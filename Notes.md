@@ -238,3 +238,23 @@ These compare memory locations of objects.
 | `functools.wraps(wrapper)` | Preserves the original function’s metadata when wrapping it with another function. | `@wraps(original_func) def wrapper(): pass` |
 | `functools.cmp_to_key(func)` | Converts an old-style comparison function into a key function for sorting. | `sorted([5, 2, 4], key=cmp_to_key(lambda x, y: x - y))` |
 | `functools.total_ordering(cls)` | Generates missing comparison methods for a class. | `@total_ordering class MyClass: def __lt__(self, other): ...` |
+
+## Python `f-string` Formatting
+
+| Format Specifier | Description | Example | Output |
+|------------------|-------------|---------|--------|
+| `{var}` | Inserts a variable's value | `name = "Alice"; f"Hello, {name}!"` | `"Hello, Alice!"` |
+| `{var:.2f}` | Formats floating-point numbers to 2 decimal places | `pi = 3.14159; f"Pi: {pi:.2f}"` | `"Pi: 3.14"` |
+| `{var:,}` | Adds a comma as a thousand separator | `num = 1000000; f"{num:,}"` | `"1,000,000"` |
+| `{var:_}` | Uses underscore as a thousand separator | `num = 1000000; f"{num:_}"` | `"1_000_000"` |
+| `{var:>10}` | Right-aligns text in a 10-character field | `f"{'Hello':>10}"` | `"     Hello"` |
+| `{var:<10}` | Left-aligns text in a 10-character field | `f"{'Hello':<10}"` | `"Hello     "` |
+| `{var:^10}` | Centers text in a 10-character field | `f"{'Hello':^10}"` | `"  Hello   "` |
+| `{var:b}` | Converts an integer to binary | `num = 5; f"{num:b}"` | `"101"` |
+| `{var:o}` | Converts an integer to octal | `num = 8; f"{num:o}"` | `"10"` |
+| `{var:x}` | Converts an integer to hexadecimal (lowercase) | `num = 255; f"{num:x}"` | `"ff"` |
+| `{var:X}` | Converts an integer to hexadecimal (uppercase) | `num = 255; f"{num:X}"` | `"FF"` |
+| `{var:e}` | Scientific notation (lowercase) | `num = 1234; f"{num:e}"` | `"1.234000e+03"` |
+| `{var:E}` | Scientific notation (uppercase) | `num = 1234; f"{num:E}"` | `"1.234000E+03"` |
+| `{var:%}` | Formats as a percentage | `num = 0.85; f"{num:%}"` | `"85.000000%"` |
+| `{var:.0%}` | Formats as a percentage without decimals | `num = 0.85; f"{num:.0%}"` | `"85%"` |
