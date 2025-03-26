@@ -27,3 +27,22 @@ def iterate_back_and_forth(start, stop):
             direction = -1
         num += direction
 ```
+
+```python
+text = "josuan"
+
+text = text.lower()
+
+isUpper = True
+
+result = ''
+for c in text:
+    if isUpper:
+        result += c.upper()
+    else:
+        result += c
+    
+    isUpper = not isUpper
+
+print(result)
+```
