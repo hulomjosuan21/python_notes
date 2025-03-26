@@ -1,31 +1,67 @@
-## File Manipulation Exception Handling
+## File Manipulation in Python
 
-### FileNotFoundError
+### Writing to a File
 ```python
-with open("nonexistent.txt", "r") as file:
+with open("example.txt", "w") as file:
+    file.write("Hello, world!\n")
+    file.write("This is a test file.\n")
+```
+
+### Reading from a File
+```python
+with open("example.txt", "r") as file:
     content = file.read()
+    print(content)
 ```
 
-### PermissionError
+### Appending to a File
 ```python
-with open("/root/protected_file.txt", "w") as file:
-    file.write("data")
+with open("example.txt", "a") as file:
+    file.write("Appending a new line.\n")
 ```
 
-### IsADirectoryError
+### Reading a File Line by Line
 ```python
-with open("/home/user/some_directory", "r") as file:
-    content = file.read()
+with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())
 ```
 
-### NotADirectoryError
+### Checking if a File Exists
 ```python
 import os
-os.listdir("some_file.txt")
+if os.path.exists("example.txt"):
+    print("File exists")
+else:
+    print("File does not exist")
 ```
 
-### IOError (OSError)
+### Deleting a File
 ```python
-with open("/dev/full", "w") as file:
-    file.write("Test data")
+import os
+if os.path.exists("example.txt"):
+    os.remove("example.txt")
+    print("File deleted")
+else:
+    print("File does not exist")
 ```
+
+### Creating a Directory
+```python
+import os
+os.makedirs("new_folder", exist_ok=True)
+print("Directory created")
+```
+
+### Listing Files in a Directory
+```python
+import os
+files = os.listdir(".")
+print("Files in current directory:", files)
+```
+
+### Renaming a File
+```python
+import os
+os.rename("example.txt", "renamed_example.txt")
+print("File renamed")
