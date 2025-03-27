@@ -1,4 +1,3 @@
-```md
 # Python Collection Methods
 
 ## List Methods
@@ -57,4 +56,3 @@
 |--------|-------------|
 | `count(x)` | Returns the number of occurrences of an item |
 | `index(x[, start[, end]])` | Returns the index of the first occurrence of the item |
-```
