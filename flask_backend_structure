@@ -1,60 +1,37 @@
-flask_api_backend/
-│── .env
-│── .gitignore
-│── config.py
-│── run.py
-│── requirements.txt
-│── README.md
+/your_project/
 │
-├── venv/                   # Virtual environment (excluded in .gitignore)
+├── run.py                     # 🔥 App entry point
+├── config.py                  # ⚙️ App config (Dev, Prod, Test)
+├── requirements.txt
 │
-├── instance/               # Local instance configuration
-│   ├── config.py
-│
-├── app/
-│   ├── __init__.py         # App factory function
-│   │
-│   ├── api/                # API routes using Blueprints
+├── /app/
+│   ├── __init__.py            # 🔧 App factory
+│   ├── extensions.py          # 📦 Init all Flask extensions here (db, migrate, etc.)
+│   ├── models/                # 🧬 All your SQLAlchemy models
 │   │   ├── __init__.py
-│   │   ├── routes.py
+│   │   ├── user.py
+│   │   ├── course.py
+│   │   ├── ai_model_result.py
+│   │   └── ...
+│   ├── routes/                # 🌐 All route blueprints
+│   │   ├── __init__.py
 │   │   ├── auth_routes.py
 │   │   ├── user_routes.py
-│   │   ├── ai_routes.py
-│   │
-│   ├── controllers/        # Business logic layer
+│   │   └── ai_routes.py
+│   ├── services/              # 🧠 Business logic and core features
 │   │   ├── __init__.py
-│   │   ├── auth_controller.py
-│   │   ├── user_controller.py
-│   │   ├── ai_controller.py
-│   │
-│   ├── models/             # SQLAlchemy Models
-│   │   ├── __init__.py
-│   │   ├── base_model.py
-│   │   ├── user_model.py
-│   │   ├── ai_model.py
-│   │
-│   ├── services/           # Service Layer for AI & Business Logic
-│   │   ├── __init__.py
-│   │   ├── ai_service.py
 │   │   ├── user_service.py
-│   │
-│   ├── utils/              # Utility functions (Logging, Security)
+│   │   └── ai_service.py
+│   ├── ml/                    # 🤖 AI/ML scripts, model loaders, preprocessors
 │   │   ├── __init__.py
-│   │   ├── helpers.py
-│   │   ├── logger.py
-│   │   ├── security.py
-│   │
-│   ├── extensions.py       # Initialize Flask extensions
-│   ├── config.py           # Configuration settings
+│   │   ├── model.py
+│   │   ├── predict.py
+│   │   └── train.py
+│   ├── utils/                 # 🛠️ Helpers, validators, etc.
+│   │   └── token_utils.py
+│   └── schemas/               # 🧾 Marshmallow/Pydantic schemas (if used)
+│       └── user_schema.py
 │
-├── migrations/             # Database migrations
-│
-├── tests/                  # Unit tests
-│   ├── __init__.py
-│   ├── test_auth.py
-│   ├── test_users.py
-│   ├── test_ai.py
-│
-└── docs/                   # Documentation
-    ├── api_docs.md
-    ├── architecture.md
+├── /migrations/               # 🗃️ Flask-Migrate auto-generated
+└── /instance/
+    └── config.py              # Optional instance-level config
